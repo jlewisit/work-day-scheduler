@@ -42,29 +42,71 @@ $("#4PM").text(four);
 var five = moment().format('17:00');
 $("#5PM").text(five);
 
+
+
+
 // ***LOCAL STORAGE***
-renderLastRegistered();
+ var saveBtn = document.querySelector("#saveBtn");
+ var note1Input = document.querySelector("#note1")
 
-function displayMessage(type, message) {
-    msgDiv.textContent = message;
-    msgDiv.setAttribute("class", type);
+// renderLastRegistered();
+
+// function displayMessage(type, message) {
+//     msgDiv.textContent = message;
+//     msgDiv.setAttribute("class", type);
+// }
+
+function saveLastNote() {
+  // Save related form data as an object
+var userNote = {
+    note1: note1.value.trim()
+};
+
+
+
+//   userNote1.textContent = localStorage.getItem("note1");
+// }
+
+  // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+    localStorage.setItem("note1", JSON.stringinfy(note1));
 }
+//   renderMessage();
 
-var eventInput = document.querySelector("#event");
 
-function renderLastRegistered() {
-  // TODO: Retrieve the last event and render it to the page
-userEventSpan.textContent = localStorage.getItem("userEvent");
+
+function renderLastNote() {
+    // User JSON.parse() to convert text to JavaScript object
+    var lastNote = JSON.parse(localStorage.getItem("userNote"));
+  // Check if data is returned, if not exit out of the function
+  if(lastNote !== null) {
+    document.getElementById("note1").innerHTML = lastNote.user;
+  } else {
+    return;
+  }
 }
-saveBtn.addEventListener("click", function(event) {
-    event.preventDefault(); 
-    var event = document.querySelector("#event").value;
-      // TODO: Save event to localStorage and render
-  localStorage.setItem("userEvent", event)
-});
+//   if (lastNote !== null) {
+//         document.querySelector(".message").textContent = lastNote.user +
+//         " received a/an " + lastNote.note}
+//     }
+
+    saveBtn.addEventListener("click", function(event) {
+        event.preventDefault(); 
+        saveLastNote();
+        renderLastNote();
+        // var note1 = document.querySelector("#note1").value;
+    });
+
+// The init() function fires when the page is loaded 
+function init() {
+    // When the init function is executed, the code inside renderLastNote function will also execute
+    renderLastNote();
+  }
+  init();
 
 
-// check time block for past present or future hour and add class to change bg color
+
+
+// check time block for past/present/future hour and add class changing background color
 $(".time-block").each(function () {
     var id = $(this).attr("id");
     var currentHour = moment().format("HH:00");
@@ -89,9 +131,3 @@ $(".time-block").each(function () {
 
 // var now = moment().format('MMMM Do YYYY, h:mm:ss a');
 // $("#currentTime"').text(now);
-
-
-
-
-
-
