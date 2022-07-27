@@ -4,47 +4,47 @@ $("#currentDay").text(today);
 
 // Static 9AM in moment.js
 var nine = moment().format('09:00');
-$("#9AM").text(nine);
-// Supposed to add AM/PM, but not working
+$("#hour1").text(nine);
+// This is supposed to add AM/PM, but it's not working
 moment.updateLocale('en', {
     meridiem : Function
 });
 
 // Static 10AM in moment.js
 var ten = moment().format('10:00');
-$("#10AM").text(ten);
+$("#hour2").text(ten);
 
 // Static 11AM in moment.js
 var eleven = moment().format('11:00');
-$("#11AM").text(eleven);
+$("#hour3").text(eleven);
 
 // Static 12PM in moment.js
 var twelve = moment().format('12:00');
-$("#12PM").text(twelve);
+$("#hour4").text(twelve);
 
 // Static 1PM in moment.js
 var one = moment().format('13:00');
-$("#1PM").text(one);
+$("#hour5").text(one);
 
 // Static 2PM in moment.js
 var two = moment().format('14:00');
-$("#2PM").text(two);
+$("#hour6").text(two);
 
 // Static 3PM in moment.js
 var three = moment().format('15:00');
-$("#3PM").text(three);
+$("#hour7").text(three);
 
 // Static 4PM in moment.js
 var four = moment().format('16:00');
-$("#4PM").text(four);
+$("#hour8").text(four);
 
 // Static 5PM in moment.js
 var five = moment().format('17:00');
-$("#5PM").text(five);
+$("#hour9").text(five);
 
 
 // ***LOCAL STORAGE***
- var note1Input = document.querySelector("#note1")
+var note1Input = document.querySelector("#note1")
 
 function saveLastNote() {
   // Save related form data as an object
@@ -52,7 +52,7 @@ var userNote = {
     note1Input: note1Input.value.trim()
 };
 // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
-    localStorage.setItem("userNote", JSON.stringinfy(userNote));
+    localStorage.setItem("userNote", JSON.stringify(userNote));
 }
 
 function renderLastNote() {
@@ -65,15 +65,11 @@ function renderLastNote() {
     return;
   }
 }
-//   if (lastNote !== null) {
-//         document.querySelector(".message").textContent = lastNote.user +
-//         " received a/an " + lastNote.note}
-//     }
 
 // Just one event listener for all save buttons
 var saveBtn = document.getElementsByClassName("saveBtn");
 var myFunction = function() {
-    var attribute = this.getAttribute("data-myattribute");
+    var attribute = this.getAttribute("hour1");
     alert(attribute);
 };
 for (var i = 0; i < saveBtn.length; i++) {
@@ -94,6 +90,7 @@ function init() {
 $(".time-block").each(function () {
     var id = $(this).attr("id");
     var currentHour = moment().format("HH:00");
+    var block = document.getElementsByClassName("time-block");
 
     if (currentHour === id) {
         $(this).parent().addClass("present");
@@ -104,14 +101,10 @@ $(".time-block").each(function () {
     else {
         $(this).parent().addClass("future");
     }
+    for (var i = 0; i < block.length; i++) {
+    }
     })
 
 
 
 
-
-// var eventTime = moment().format();
-// $("#rightNow").text(eventTime);
-
-// var now = moment().format('MMMM Do YYYY, h:mm:ss a');
-// $("#currentTime"').text(now);
