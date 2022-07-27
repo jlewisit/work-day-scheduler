@@ -76,10 +76,10 @@ var userNote = {
 
 function renderLastNote() {
     // User JSON.parse() to convert text to JavaScript object
-    var lastNote = JSON.parse(localStorage.getItem("userNote"));
+    var note1 = JSON.parse(localStorage.getItem("userNote"));
   // Check if data is returned, if not exit out of the function
-  if(lastNote !== null) {
-    document.getElementById("note1").innerHTML = lastNote.user;
+  if(note1 !== null) {
+    document.getElementById("note1").innerHTML = note1.user;
   } else {
     return;
   }
