@@ -46,25 +46,10 @@ $("#hour9").text(five);
 // ***LOCAL STORAGE***
 var note1Input = document.querySelector("#note1")
 
-function saveLastNote() {
-  // Save related form data as an object
-var userNote = {
-    note1Input: note1Input.value.trim()
-};
-// Use .setItem() to store object in storage and JSON.stringify to convert it as a string
-    localStorage.setItem("userNote", JSON.stringify(userNote));
+function populateStorage () {
+    localStorage.setItem('hour1', 'note1')
 }
 
-function renderLastNote() {
-    // User JSON.parse() to convert text to JavaScript object
-    var lastNote = JSON.parse(localStorage.getItem("userNote"));
-  // Check if data is returned, if not exit out of the function
-  if(lastNote !== null) {
-    document.getElementById("note1").innerHTML = lastNote.note1Input;
-  } else {
-    return;
-  }
-}
 
 // Just one event listener for all save buttons
 var saveBtn = document.getElementsByClassName("saveBtn");
@@ -74,16 +59,8 @@ var myFunction = function() {
 };
 for (var i = 0; i < saveBtn.length; i++) {
     saveBtn[i].addEventListener('click', myFunction, false);
+    populateStorage()
 }
-
-// The init() function fires when the page is loaded 
-function init() {
-    // When the init function is executed, the code inside renderLastNote function will also execute
-    renderLastNote();
-  }
-  init();
-
-
 
 
 // check time block for past/present/future hour and add class changing background color
@@ -105,6 +82,30 @@ $(".time-block").each(function () {
     }
     })
 
+// function saveLastNote() {
+//   // Save related form data as an object
+// var userNote = {
+//     note1Input: note1Input.value.trim()
+// };
+// // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+//     localStorage.setItem("userNote", JSON.stringify(userNote));
+// }
 
+    // function renderLastNote() {
+    //     User JSON.parse() to convert text to JavaScript object
+    //     var lastNote = JSON.parse(localStorage.getItem("userNote"));
+    //     SVGTextPositioningElement()
+    //   // Check if data is returned, if not exit out of the function
+    //   if(lastNote !== null) {
+    //     document.getElementById("note1").innerHTML = lastNote.note1Input;
+    //   } else {
+    //     return;
+    //   }
+    // }
 
-
+//     // The init() function fires when the page is loaded 
+// function init() {
+//     // When the init function is executed, the code inside renderLastNote function will also execute
+//     renderLastNote();
+//   }
+//   init();
