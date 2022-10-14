@@ -2,13 +2,24 @@
 var today = moment().format('dddd, MMM Do');
 $("#currentDay").text(today);
 
+var currentTime = moment();
+
+displayTime.textContent = currentTime.format("dddd, MMMM Do")
+
+$(".saveBtn").on("click", function() {
+    // get row text field class and row id values
+    var value = $(this).siblings("description").val();
+    var time = $(this).parent().attr("id");
+
+    // save to localStorage
+    localStorage.setItem(time /* aka KEY = row id */, value /* text in the text area */);
+});
+
+// load any saved data from localStorage
+
 // Static 9AM in moment.js
 var nine = moment().format('09:00');
 $("#hour1").text(nine);
-// This is supposed to add AM/PM, but it's not working
-moment.updateLocale('en', {
-    meridiem : Function
-});
 
 // Static 10AM in moment.js
 var ten = moment().format('10:00');
@@ -42,26 +53,7 @@ $("#hour8").text(four);
 var five = moment().format('17:00');
 $("#hour9").text(five);
 
-
-// ***LOCAL STORAGE***
-var note1Input = document.querySelector("#note1")
-
-function populateStorage () {
-    localStorage.setItem('hour1', 'note1')
-}
-
-
-// Just one event listener for all save buttons
-var saveBtn = document.getElementsByClassName("saveBtn");
-var myFunction = function() {
-    var attribute = this.getAttribute("hour1");
-    alert(attribute);
-};
-for (var i = 0; i < saveBtn.length; i++) {
-    saveBtn[i].addEventListener('click', myFunction, false);
-    populateStorage()
-}
-
+var currentHour = moment().format('H');
 
 // check time block for past/present/future hour and add class changing background color
 $(".time-block").each(function () {
@@ -82,30 +74,35 @@ $(".time-block").each(function () {
     }
     })
 
-// function saveLastNote() {
-//   // Save related form data as an object
-// var userNote = {
-//     note1Input: note1Input.value.trim()
-// };
-// // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
+    // ***LOCAL STORAGE***
+// read about event delegation
+// use event.target
+// target the parent element (container)
+// var note1Input = document.querySelector("#userNote");
+// function populateStorage () {
+//     // Use .setItem() to store object in storage and JSON.stringify to convert it as a string
 //     localStorage.setItem("userNote", JSON.stringify(userNote));
 // }
 
-    // function renderLastNote() {
-    //     User JSON.parse() to convert text to JavaScript object
-    //     var lastNote = JSON.parse(localStorage.getItem("userNote"));
-    //     SVGTextPositioningElement()
-    //   // Check if data is returned, if not exit out of the function
-    //   if(lastNote !== null) {
-    //     document.getElementById("note1").innerHTML = lastNote.note1Input;
-    //   } else {
-    //     return;
-    //   }
-    // }
-
-//     // The init() function fires when the page is loaded 
-// function init() {
-//     // When the init function is executed, the code inside renderLastNote function will also execute
-//     renderLastNote();
-//   }
-//   init();
+var inpKey = document.getElementById("inpKey");
+// const inpValue = docuemnt.getElementById("inpValue");
+var btnInsert = document.getElementById("btnInsert");
+var lsOutput = document.getElementById("lsOutput");
+inpKey = "note1Key";
+btnInsert = "save1";
+lsOutput = "note1Output";
+save1.onclick = function() {
+    const note = note1Key.value;
+    // const value = inValue.value;
+console.log(note);
+// console.log(value);
+// if (note) {
+//     localStorage.setItem(note);
+//     location.reload();
+// }
+for (let i = 0; i < localStorage.length; i++) {
+    const note = localStorage.key(i);
+    // const value = localStorage.getItem(note);
+    note1Output.innerHTML += `${note}<br />`;
+    }
+ }
