@@ -1,6 +1,6 @@
 # Work Day Scheduler
 
-A simple calendar application that should allow a user to save events for each hour of the day.
+A simple calendar application that allows users to save events for each hour of the day.
 
 Here is the link:  https://jlewisit.github.io/work-day-scheduler/
 
