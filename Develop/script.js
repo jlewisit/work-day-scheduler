@@ -16,40 +16,38 @@ $(".saveBtn").on("click", function() {
 });
 
 // load any saved data from localStorage
+// localStorage KEY is also the row id
 
-// Static 9AM in moment.js
-var nine = moment().format('09:00');
-$("#hour1").text(nine);
+// // Static 9AM in moment.js
+// var nine = moment().format('09:00');
+// $("#hour1").text(nine);
 
-// 10AM 
-$("#10-row .description").val(localStorage.getItem("10-row" /* localStorage KEY also the row id */));
+// 9 
+$("#9-row .description").val(localStorage.getItem("9-row"));
 
-// 11AM 
-$("#11-row .description").val(localStorage.getItem("11-row" /* localStorage KEY also the row id */));
+// 10 
+$("#10-row .description").val(localStorage.getItem("10-row"));
 
-// Static 12PM in moment.js
-var twelve = moment().format('12:00');
-$("#hour4").text(twelve);
+// 11 
+$("#11-row .description").val(localStorage.getItem("11-row"));
 
-// Static 1PM in moment.js
-var one = moment().format('13:00');
-$("#hour5").text(one);
+// 12 
+$("#12-row .description").val(localStorage.getItem("12-row"));
 
-// Static 2PM in moment.js
-var two = moment().format('14:00');
-$("#hour6").text(two);
+// 1 
+$("#1-row .description").val(localStorage.getItem("1-row"));
 
-// Static 3PM in moment.js
-var three = moment().format('15:00');
-$("#hour7").text(three);
+// 2 
+$("#2-row .description").val(localStorage.getItem("2-row"));
 
-// Static 4PM in moment.js
-var four = moment().format('16:00');
-$("#hour8").text(four);
+// 3 
+$("#3-row .description").val(localStorage.getItem("3-row"));
 
-// Static 5PM in moment.js
-var five = moment().format('17:00');
-$("#hour9").text(five);
+// 4 
+$("#4-row .description").val(localStorage.getItem("4-row"));
+
+// 5 
+$("#5-row .description").val(localStorage.getItem("5-row"));
 
 // converting time and display
 

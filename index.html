@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="./Develop/style.css"/>
     <title>Work Day Scheduler</title>
   </head>
@@ -25,21 +27,20 @@
     <div class="container">
 
       <!-- Timeblocks -->
-      <div id="hour1" class="row time-block">
+      <div id="hour9" class="row time-block">
         <div class="col-md-1 hour">
           9am
         </div>
-        <textarea class="col-md-10 description">
-        </textarea>
+        <textarea class="col-md-10 description" id="9-text"></textarea>
         <button class="btn col-md-1 saveBtn"><i class="fas fa-save"></i></button>
       </div>
 
-      <div class="row" id="10-row">
-        <div class="col-1 col-xs-1 hour" id="time-block hour10">
+      <div id="hour10" class="row time-block">
+        <div class="col-md-1 hour">
           10am
         </div>
-        <textarea id="10-text" rows="3" class="form-control description col-7 col-xs-1"></textarea>
-        <button type="button" class="col-1 col-xs-1 saveBtn"><span class="oi oi-task"></span></button>
+        <textarea class="col-md-10 description" id="10-text"></textarea>
+        <button class="btn col-md-1 saveBtn"><i class="fas fa-save"></i></button>
       </div>
 
       <div class="row" id="11-row">
