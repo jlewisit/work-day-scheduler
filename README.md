@@ -11,4 +11,6 @@ AS AN employee with a busy schedule
 I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively
 ```
-![image](https://user-images.githubusercontent.com/102529279/181372858-6f4d8ee5-26ce-45e1-82a6-59fbdf820f8f.png)
+
+![image](https://user-images.githubusercontent.com/102529279/196008439-a50d4853-fae1-4f01-80de-7a501349bd5b.png)
+
