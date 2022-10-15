@@ -4,24 +4,23 @@ $("#currentDay").text(today);
 
 var currentTime = moment();
 
-// displayTime.textContent = currentTime.format("dddd, MMMM Do")
-
-$(".saveBtn").on("click", function() {
+// listen for save button clicks
+$('.saveBtn').on('click', function() {
     // get row text field class and row id values
-    var value = $(this).siblings("description").val();
-    var time = $(this).parent().attr("id");
-
+    var value = $(this).siblings('description').val();
+    var time = $(this).parent().attr('id');
     // save to localStorage
     localStorage.setItem(time /* aka KEY = row id */, value /* text in the text area */);
+    // Show notification that item was saved to localStorage by adding class 'show'
+    $('.notification').addClass('show');
+    // Timeout to remove 'show' class after 5 seconds
+    setTimeout(function() {
+        $('.notification').removeClass('show');
+    }, 5000);
 });
 
 // load any saved data from localStorage
 // localStorage KEY is also the row id
-
-// // Static 9AM in moment.js
-// var nine = moment().format('09:00');
-// $("#hour1").text(nine);
-
 // 9 
 $("#hour9-row .description").val(localStorage.getItem("hour9-row"));
 
