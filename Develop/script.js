@@ -7,7 +7,7 @@ var currentTime = moment();
 // listen for save button clicks
 $('.saveBtn').on('click', function() {
     // get row text field class and row id values
-    var value = $(this).siblings('description').val();
+    var value = $(this).siblings('.description').val();
     var time = $(this).parent().attr('id');
     // save to localStorage
     localStorage.setItem(time /* aka KEY = row id */, value /* text in the text area */);
@@ -22,8 +22,7 @@ $('.saveBtn').on('click', function() {
 // load any saved data from localStorage
 // localStorage KEY is also the row id
 // 9 
-$("#hour9-row .description").val(localStorage.getItem("hour9-row"));
-
+$("#hour9-row .description").val(localStorage.getItem(".hour9-row"));
 // 10 
 $("#hour10-row .description").val(localStorage.getItem("hour10-row"));
 
