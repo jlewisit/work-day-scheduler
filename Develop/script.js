@@ -172,25 +172,3 @@ if (currentHour < hour17) {
 //     localStorage.setItem("userNote", JSON.stringify(userNote));
 // }
 
-// var inpKey = document.getElementById("inpKey");
-// // const inpValue = docuemnt.getElementById("inpValue");
-// var btnInsert = document.getElementById("btnInsert");
-// var lsOutput = document.getElementById("lsOutput");
-// inpKey = "note1Key";
-// btnInsert = "save1";
-// lsOutput = "note1Output";
-// save1.onclick = function() {
-//     const note = note1Key.value;
-//     // const value = inValue.value;
-// console.log(note);
-// // console.log(value);
-// // if (note) {
-// //     localStorage.setItem(note);
-// //     location.reload();
-// // }
-// for (let i = 0; i < localStorage.length; i++) {
-//     const note = localStorage.key(i);
-//     // const value = localStorage.getItem(note);
-//     note1Output.innerHTML += `${note}<br />`;
-//     }
-//  }
