@@ -22,7 +22,8 @@ $('.saveBtn').on('click', function() {
 // load any saved data from localStorage
 // localStorage KEY is also the row id
 // 9 
-$("#hour9-row .description").val(localStorage.getItem(".hour9-row"));
+$("#hour9-row .description").val(localStorage.getItem("hour9-row"));
+
 // 10 
 $("#hour10-row .description").val(localStorage.getItem("hour10-row"));
 
